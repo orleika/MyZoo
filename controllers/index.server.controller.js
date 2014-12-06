@@ -7,7 +7,7 @@ var config = require('../config.json');
  * Show the index
  */
 exports.read = function (req, res) {
-  res.json(res.render('index'), {
+  res.render('index', {
     title: config.title,
     keyword: config.keyword,
     description: config.description,
