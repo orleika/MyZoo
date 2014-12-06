@@ -1,6 +1,6 @@
 {
   "name": "zoo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "HOST=http://localhost:3000 MONGODB_URI=mongodb://localhost/zoo node ./server.js"
