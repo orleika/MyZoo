@@ -17,7 +17,10 @@ exports.create = function (req, res) {
     type = req.body.type,
     imageData = req.body.image,
     soundData = req.body.sound;
-  console.log(req.body);
+  console.log(req.body.id);
+  console.log(req.body.name);
+  console.log(req.body.text);
+  console.log(req.body.image);
   console.log("pass1");
 
   if (!uid || !imageData) {
