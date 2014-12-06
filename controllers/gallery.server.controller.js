@@ -102,7 +102,7 @@ var userGallery = function (uid, res) {
 };
 
 exports.read = function (req, res) {
-  if (!reqreq.query.id) {
+  if (!req.query.id) {
     randomGallery(res);
   } else if (req.query.id) {
     userGallery(req.query.id, res);
