@@ -15,11 +15,11 @@ exports.create = function (req, res) {
     name = req.body.name,
     text = req.body.text,
     type = req.body.type,
-    imageDate = req.body.image,
-    soundDate = req.body.sound;
+    imageData = req.body.image,
+    soundData = req.body.sound;
   console.log("pass1");
 
-  if (!uid || !image) {
+  if (!uid || !imageData) {
     res.status(400).send();
   } else {
     async.waterfall([
@@ -41,7 +41,7 @@ exports.create = function (req, res) {
         gallery.name = name;
         gallery.text = text;
         gallery.type = type;
-        gallery.sound = soundDate;
+        gallery.sound = soundData;
 
         gallery.save(function (err) {
           if (err) {
@@ -55,7 +55,7 @@ exports.create = function (req, res) {
         console.log("pass4");
         var image = new Image();
         image.gid = gid;
-        image.data = image;
+        image.data = imageData;
 
         iamge.save(function (err) {
           if (err) {
