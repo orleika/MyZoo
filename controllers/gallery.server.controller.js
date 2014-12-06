@@ -2,10 +2,10 @@
  * Module dependencies.
  */
 var async = require('async'),
-  mongoose = require('mongoose'),
-  User = mongoose.model('User'),
-  Gallery = mongoose.model('Gallery'),
-  Image = mongoose.model('Image');
+  models = require('../models'),
+  User = models.User,
+  Gallery = models.Gallery,
+  Image = models.Image;
 
 /**
  * Create a Gallery

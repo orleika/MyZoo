@@ -1,8 +1,8 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Image = mongoose.model('Image');
+var models = require('../models'),
+  Image = models.Image;
 
 /**
  * Show the Image
