@@ -19,7 +19,7 @@ exports.create = function (req, res) {
     soundDate = req.body.sound;
   console.log("pass1");
 
-  if (!id || !image) {
+  if (!uid || !image) {
     res.status(400).send();
   } else {
     async.waterfall([
