@@ -85,27 +85,31 @@ exports.create = function (req, res) {
 /**
  * Show the Gallery
  */
-var randomGallery = function (res) {
-  Gallery.find({}, [], {
-    limit: 12
-  }, function (err, galleries) {
-    res.json(galleries);
-  });
+var randomGallery = function () {
+  Gallery.find({}).limit(12).exec(
+    function (err, galleries) {
+      return galleries;
+    });
 };
 
-var userGallery = function (uid, res) {
+var userGallery = function (uid) {
   Gallery.find({
     uid: uid
   }, function (err, galleries) {
-    res.json(galleries);
+    return galleries;
   });
 };
 
 exports.read = function (req, res) {
+  var galleries;
+
   if (!req.query.id) {
-    randomGallery(res);
+    console.log("pass");
+    galleries = randomGallery();
+    res.json(galleries);
   } else if (req.query.id) {
-    userGallery(req.query.id, res);
+    galleries = userGallery(req.query.id);
+    res.json(galleries);
   } else {
     res.status(400).send();
   }
