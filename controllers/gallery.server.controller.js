@@ -17,12 +17,14 @@ exports.create = function (req, res) {
     type = req.body.type,
     imageDate = req.body.image,
     soundDate = req.body.sound;
+  console.log("pass1");
 
   if (!id || !image) {
     res.status(400).send();
   } else {
     async.waterfall([
       function (callback) {
+        console.log("pass2");
         user.findById(uid, function (err, user) {
           if (err) {
             callback(err);
@@ -32,6 +34,7 @@ exports.create = function (req, res) {
         });
       },
       function (uname, allback) {
+        console.log("pass3");
         var gallery = new Gallery();
         gallery.uid = uid;
         gallery.uname = uname;
@@ -49,6 +52,7 @@ exports.create = function (req, res) {
         });
       },
       function (gid, callback) {
+        console.log("pass4");
         var image = new Image();
         image.gid = gid;
         image.data = image;
@@ -62,6 +66,7 @@ exports.create = function (req, res) {
         });
       },
       function (imgid, callback) {
+        console.log("pass5");
         var host = process.env.HOST,
           imageURL = host + "/image?" + imgid;
 
