@@ -4,9 +4,8 @@ var express = require('express'),
 /**
  * Module dependencies.
  */
-var index = require('../controllers/index.server.controller');
+var user = require('../controllers/user.server.controller');
 
-/* GET home page. */
-router.get('/', index.read);
+router.get('/', user.read);
 
 module.exports = router;
