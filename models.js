@@ -32,6 +32,7 @@ exports.User = db.model('User', UserSchema);
  */
 var GallerySchema = new Schema({
   uid: ObjectId,
+  uname: String,
   name: {
     type: String,
     default: ''
