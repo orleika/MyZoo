@@ -1,8 +1,10 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Gallery = mongoose.model('Gallery');
+var async = require('async'),
+  mongoose = require('mongoose'),
+  Gallery = mongoose.model('Gallery'),
+  Image = mongoose.model('Image');
 
 /**
  * Create a Gallery
@@ -12,8 +14,8 @@ exports.create = function (req, res) {
     name = req.body.name,
     text = req.body.text,
     type = req.body.type,
-    image = req.body.image,
-    sound = req.body.sound;
+    imageDate = req.body.image,
+    soundDate = req.body.sound;
 
   if (!id || !image) {
     res.status(400).send();
@@ -23,16 +25,47 @@ exports.create = function (req, res) {
     gallery.name = name;
     gallery.text = text;
     gallery.type = type;
-    gallery.image = image;
-    gallery.sound = sound;
+    gallery.sound = soundDate;
 
-    gallery.save(function (err) {
-      if (err) {
-        res.status(400).send();
-      } else {
-        res.json({
-          "suceess": true
+    async.waterfall([
+      function (callback) {
+        gallery.save(function (err) {
+          if (err) {
+            callback(err);
+          } else {
+            callback(null, gallery._id);
+          }
         });
+      },
+      function (gid, callback) {
+        var image = new Image();
+        image.gid = gid;
+        image.data = image;
+
+        iamge.save(function (err) {
+          if (err) {
+            callback(err);
+          } else {
+            callback(null, image._id);
+          }
+        });
+      },
+      function (imgid, callback) {
+        var host = process.env.HOST,
+          imageURL = host + "/image?" + imgid;
+
+        Gallery.update({
+          _id: gid
+        }, {
+          $set: {
+            "image": imageURL
+          }
+        });
+      }
+    ], function (err) {
+      if (err) {
+        console.log(err);
+        res.status(400).send('Bad Request');
       }
     });
   }

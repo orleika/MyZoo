@@ -6,18 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ECT = require('ect');
 var compression = require('compression');
-var config = require('./config.json');
 
 var index = require('./routes/index');
 var login = require('./routes/login');
 var user = require('./routes/user');
 var gallery = require('./routes/gallery');
+var image = require('./routes/image');
 
 var app = express();
-
-// Setting application local variables
-app.locals.title = config.title;
-app.locals.description = config.description;
 
 // view engine setup
 app.engine('ect', ECT({
@@ -48,6 +44,7 @@ app.use('/', index);
 app.use('/login', login);
 app.use('/user', user);
 app.use('/gallery', gallery);
+app.use('/image', image);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
