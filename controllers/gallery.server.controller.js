@@ -12,12 +12,12 @@ var async = require('async'),
  * Create a Gallery
  */
 exports.create = function (req, res) {
-  var uid = req.files.id,
-    name = req.files.name,
-    text = req.files.text,
-    type = req.files.type,
-    imageData = req.files.image,
-    soundData = req.files.sound;
+  // var uid = req.files.id,
+  //   name = req.files.name,
+  //   text = req.files.text,
+  //   type = req.files.type,
+  //   imageData = req.files.image,
+  //   soundData = req.files.sound;
   console.log(req.files);
   console.log(req.body);
   console.log("pass1");
