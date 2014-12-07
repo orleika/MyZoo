@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>ズー鑑 --</title>
+		<meta name="description" content="Fullscreen Pageflip Layout with BookBlock" />
+		<meta name="keywords" content="fullscreen pageflip, booklet, layout, bookblock, jquery plugin, flipboard layout, sidebar menu" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.custom.css" />
+		<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script src="js/modernizr.custom.79639.js"></script>
+		<style>
+			#logo{
+				margin: 50px 0px 0px 0px;
+			}
+			.list{
+				width: 20%;
+				background: #efebe9;
+				margin: 20px;
+				padding: 10px;
+				display: block;
+				float: left;
+			}
+			img.list_view{
+				width: 80%;
+				height: 80%;
+				margin: 0% 10%;
+			}
+			.list h3{
+				font-size: 2em;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+
+	<body>
+		<div id="container" class="container">	
+
+			<div class="menu-panel">
+				<h3><img src="./img/img_splash_title.png" width="100%"></h3>
+				<ul id="menu-toc" class="menu-toc">
+					<li class="menu-toc-current"><a href="#item1">図鑑一覧</a></li>
+					<li><a href="#item2">つかいかた</a></li>
+				</ul>
+			</div>
+
+			<div class="bb-custom-wrapper">
+				<div id="bb-bookblock" class="bb-bookblock">
+					<div class="bb-item" id="item1">
+						<div class="content">
+						<div id="logo">
+							<center>
+								<img src="./img/img_splash_title.png" width="40%">
+							</center>
+							</div>
+							<div class="scroller">
+								<h2>図鑑一覧</h2>
+
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+								<div class="list">
+									<img class="list_view" src="./">
+									<h3>HOGEFUGA</h3>
+									<p>FUGAFUGA</p>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+					<div class="bb-item" id="item2">
+						<div class="content">
+							<div class="scroller">
+								<h2>つかいかた</h2>
+								<p>hogehogefugafuga</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				<nav>
+					<span id="bb-nav-prev">&larr;</span>
+					<span id="bb-nav-next">&rarr;</span>
+				</nav>
+
+				<span id="tblcontents" class="menu-button">Table of Contents</span>
+
+			</div>
+				
+		</div><!-- /container -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="js/jquery.mousewheel.js"></script>
+		<script src="js/jquery.jscrollpane.min.js"></script>
+		<script src="js/jquerypp.custom.js"></script>
+		<script src="js/jquery.bookblock.js"></script>
+		<script src="js/page.js"></script>
+		<script>
+			$(function() {
+
+				Page.init();
+
+			});
+		</script>
+	</body>
+</html>

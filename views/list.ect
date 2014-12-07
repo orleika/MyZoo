@@ -1,10 +1,9 @@
 <% galleryHelper = (gallery) -> %>
-  <li>
-    <%- gallery.name %>
-    <img src="<%- gallery.image %>" alt="<%- gallery.name %>">
-    <%- gallery.uname %>
-    <%- gallery.text %>
-  </li>
+  <div class="list">
+    <img class="list_view" <%- gallery.image %>" alt="<%- gallery.name %>">
+    <h3><%- gallery.name %></h3>
+    <p><%- gallery.uname %></p>
+  </div>
 <% end %>
 
 <% if @galleries?.length : %>

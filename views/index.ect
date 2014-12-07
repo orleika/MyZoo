@@ -1,11 +1,43 @@
 <% extend 'layout' %>
 
-  <div class="container">
-    <header>
-      <h1 class="page-header"><%- @title %></h1>
-    </header>
-    <main>
-      <% include 'list' %>
-    </main>
-    <footer>ハッカソンモンスター</footer>
+  <div id="container" class="container">
+    <div class="menu-panel">
+      <h3><img src="/images/title.png" width="100%"></h3>
+      <ul id="menu-toc" class="menu-toc">
+        <li class="menu-toc-current"><a href="#item1">図鑑一覧</a>
+        </li>
+        <li><a href="#item2">つかいかた</a>
+        </li>
+      </ul>
+    </div>
+    <div class="bb-custom-wrapper">
+      <div id="bb-bookblock" class="bb-bookblock">
+        <div class="bb-item" id="item1">
+          <div class="content">
+            <div id="logo">
+              <center>
+                <img src="/images/title.png" width="40%">
+              </center>
+            </div>
+            <div class="scroller">
+              <h2>図鑑一覧</h2>
+              <% include 'list' %>
+            </div>
+          </div>
+        </div>
+        <div class="bb-item" id="item2">
+          <div class="content">
+            <div class="scroller">
+              <h2>つかいかた</h2>
+              <p>hogehogefugafuga</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <span id="bb-nav-prev">&larr;</span>
+        <span id="bb-nav-next">&rarr;</span>
+      </nav>
+      <span id="tblcontents" class="menu-button">Table of Contents</span>
+    </div>
   </div>
