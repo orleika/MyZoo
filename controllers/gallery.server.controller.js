@@ -73,7 +73,7 @@ exports.create = function (req, res) {
  * Show the Gallery
  */
 var randomGallery = function () {
-  Gallery.find({}).limit(12).exec(
+  Gallery.find().limit(12).exec(
     function (err, galleries) {
       return galleries;
     });
