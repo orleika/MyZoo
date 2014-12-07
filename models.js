@@ -55,13 +55,3 @@ var GallerySchema = new Schema({
 });
 
 exports.Gallery = db.model('Gallery', GallerySchema);
-
-/**
- * Image Schema
- */
-var ImageSchema = new Schema({
-  gid: ObjectId,
-  data: Buffer
-});
-
-exports.Image = db.model('Image', ImageSchema);

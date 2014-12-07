@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(multer({
-    dest: './uploads/'
+    dest: './public/images/'
 }));
 app.use(cookieParser());
 app.use(compression());

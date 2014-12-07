@@ -5,30 +5,25 @@ var async = require('async'),
   fs = require('fs'),
   models = require('../models'),
   User = models.User,
-  Gallery = models.Gallery,
-  Image = models.Image;
+  Gallery = models.Gallery;
 
 /**
  * Create a Gallery
  */
 exports.create = function (req, res) {
-  // var uid = req.files.id,
-  //   name = req.files.name,
-  //   text = req.files.text,
-  //   type = req.files.type,
-  //   imageData = req.files.image,
-  //   soundData = req.files.sound;
+  var body = req.body,
+    imageData = req.files.image;
+    // soundData = req.files.sound;
   console.log(req.files);
   console.log(req.body);
-  console.log("pass1");
 
-  if (true || !uid || !imageData) {
+  if (true || !body.id || !imageData) {
     res.status(400).send();
   } else {
     async.waterfall([
       function (callback) {
         console.log("pass2");
-        user.findById(uid, function (err, user) {
+        user.findById(body.id, function (err, user) {
           if (err) {
             callback(err);
           } else {
@@ -39,45 +34,19 @@ exports.create = function (req, res) {
       function (uname, allback) {
         console.log("pass3");
         var gallery = new Gallery();
-        gallery.uid = uid;
+        gallery.uid = body.id;
         gallery.uname = uname;
-        gallery.name = name;
-        gallery.text = text;
-        gallery.type = type;
-        gallery.sound = soundData;
+        gallery.name = body.name;
+        gallery.text = body.text;
+        // gallery.type = body.type;
+        gallery.image = process.env.HOST + '/' + imageData.path;
+        // gallery.sound = soundData;
 
         gallery.save(function (err) {
           if (err) {
             callback(err);
           } else {
             callback(null, gallery._id);
-          }
-        });
-      },
-      function (gid, callback) {
-        console.log("pass4");
-        var image = new Image();
-        image.gid = gid;
-        image.data = imageData;
-
-        iamge.save(function (err) {
-          if (err) {
-            callback(err);
-          } else {
-            callback(null, image._id);
-          }
-        });
-      },
-      function (imgid, callback) {
-        console.log("pass5");
-        var host = process.env.HOST,
-          imageURL = host + "/image?" + imgid;
-
-        Gallery.update({
-          _id: gid
-        }, {
-          $set: {
-            "image": imageURL
           }
         });
       }
