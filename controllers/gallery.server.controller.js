@@ -55,7 +55,7 @@ exports.create = function (req, res) {
           if (err) {
             callback(err);
           } else {
-            callback(null, gallery._id);
+            callback(null);
           }
         });
       }
