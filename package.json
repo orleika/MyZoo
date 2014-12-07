@@ -6,16 +6,19 @@
     "start": "HOST=http://localhost:3000 MONGODB_URI=mongodb://localhost/zoo node ./server.js"
   },
   "dependencies": {
-    "express": "~4.9.0",
+    "async": "*",
     "body-parser": "~1.8.1",
+    "compression": "*",
     "cookie-parser": "~1.3.3",
-    "morgan": "~1.3.0",
-    "serve-favicon": "~2.1.3",
     "debug": "~2.0.0",
     "ect": "*",
-    "compression": "*",
+    "express": "~4.9.0",
+    "fs": "0.0.2",
+    "mkdirp": "^0.5.0",
     "mongoose": "*",
+    "morgan": "~1.3.0",
+    "multer": "^0.1.6",
     "request": "*",
-    "async": "*"
+    "serve-favicon": "~2.1.3"
   }
 }

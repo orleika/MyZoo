@@ -6,12 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ECT = require('ect');
 var compression = require('compression');
+var multer  = require('multer');
 
 var index = require('./routes/index');
 var login = require('./routes/login');
 var user = require('./routes/user');
 var gallery = require('./routes/gallery');
 var image = require('./routes/image');
+var post = require('./routes/post');
 
 var app = express();
 
@@ -26,12 +28,12 @@ app.set('view engine', 'ect');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(bodyParser({
-  uploadDir: './tmp'
-}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: true
+}));
+app.use(multer({
+    dest: './uploads/'
 }));
 app.use(cookieParser());
 app.use(compression());
@@ -48,6 +50,7 @@ app.use('/login', login);
 app.use('/user', user);
 app.use('/gallery', gallery);
 app.use('/image', image);
+app.use('/post', post);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
