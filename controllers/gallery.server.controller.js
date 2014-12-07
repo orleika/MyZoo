@@ -64,7 +64,7 @@ exports.create = function (req, res) {
         console.log(err);
         res.status(400).send('Bad Request');
       } else {
-        res.status(200).send('OK');
+        res.send();
       }
     });
   }

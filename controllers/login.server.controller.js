@@ -16,9 +16,7 @@ exports.create = function (req, res) {
 
     user.save(function (err) {
       if (err) {
-        res.status(400).send({
-          id: 0
-        });
+        res.status(400).send('Bad Request');
       } else {
         res.json({
           id: user._id
