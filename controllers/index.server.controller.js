@@ -13,7 +13,7 @@ exports.read = function (req, res) {
     description: config.description,
     og_type: 'website',
     og_image: '',
-    og_url: '',
+    og_url: process.env.HOST + '/',
     og_site: ''
   });
 };

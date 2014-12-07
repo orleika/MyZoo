@@ -1,0 +1,28 @@
+Sun Dec 07 2014 12:47:06 GMT+0900 (JST):
+{ [Error: getaddrinfo ENOTFOUND]
+  stack: [Getter/Setter],
+  code: 'ENOTFOUND',
+  errno: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  __frame: 
+   { name: 'doLogStream',
+     line: 251,
+     file: '/usr/lib/node_modules/azure-cli/lib/commands/asm/site.log._js',
+     prev: 
+      { name: '__2',
+        line: 82,
+        file: '/usr/lib/node_modules/azure-cli/lib/commands/asm/site.log._js',
+        prev: undefined,
+        active: false,
+        offset: 14,
+        col: 18 },
+     active: false,
+     offset: 8,
+     col: 11 },
+  rawStack: [Getter] }
+Error: getaddrinfo ENOTFOUND
+    at errnoException (dns.js:37:11)
+    at Object.onanswer [as oncomplete] (dns.js:124:16)
+    at doLogStream (/usr/lib/node_modules/azure-cli/lib/commands/asm/site.log._js:259:11)
+    at __2 (/usr/lib/node_modules/azure-cli/lib/commands/asm/site.log._js:96:18)
+

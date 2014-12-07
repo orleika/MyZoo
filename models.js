@@ -41,7 +41,9 @@ var GallerySchema = new Schema({
     type: String,
     default: ''
   },
-  type: Number,
+  type: String,
+  lat: String,
+  lng: String,
   image: {
     url: String
   },
