@@ -55,16 +55,15 @@ exports.create = function (req, res) {
           if (err) {
             callback(err);
           } else {
+            res.json(gallery);
             callback(null);
           }
         });
-      }
+      },
     ], function (err) {
       if (err) {
         console.log(err);
         res.status(400).send('Bad Request');
-      } else {
-        res.send();
       }
     });
   }
