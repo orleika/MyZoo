@@ -96,7 +96,7 @@ exports.readUserGallery = function (req, res) {
     next(error);
   } else {
     Gallery.find({
-      uid: req.query.id
+      uid: req.params.id
     }, function (err, galleries) {
       if (err) {
         var error = new Error(err);
@@ -104,6 +104,7 @@ exports.readUserGallery = function (req, res) {
         error.message = 'Bad Request';
         next(error);
       } else {
+        console.log(galleries);
         res.json(galleries);
       }
     });
