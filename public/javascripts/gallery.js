@@ -36,8 +36,3 @@
     return this;
   };
 }(jQuery));
-
-$(function () {
-  var url = "//myzoo.azurewebsite.net/gallery";
-  $('#gallery').thumGallery({'url': url});
-});

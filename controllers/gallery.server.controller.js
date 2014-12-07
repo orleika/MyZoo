@@ -19,7 +19,7 @@ exports.create = function (req, res) {
   //   imageData = req.files.image,
   //   soundData = req.files.sound;
   // console.log(req.files);
-  console.log(req);
+  // console.log(req);
   console.log("pass1");
 
   if (true || !uid || !imageData) {
