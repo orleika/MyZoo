@@ -2,7 +2,6 @@
  * Module dependencies.
  */
 var async = require('async'),
-  fs = require('fs'),
   models = require('../models'),
   User = models.User,
   Gallery = models.Gallery;
@@ -28,12 +27,12 @@ exports.create = function (req, res) {
   console.log(req.body);
 
   if (!body.id || !imageData) {
-    res.status(400).send();
+    res.status(400).send('Bad Request');
   } else {
     async.waterfall([
       function (callback) {
         console.log("pass2");
-        user.findById(body.id, function (err, user) {
+        User.findById(body.id, function (err, user) {
           if (err) {
             callback(err);
           } else {
@@ -98,6 +97,6 @@ exports.read = function (req, res) {
     galleries = userGallery(req.query.id);
     res.json(galleries);
   } else {
-    res.status(400).send();
+    res.status(400).send('Bad Request');
   }
 };
