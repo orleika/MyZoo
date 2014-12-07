@@ -12,7 +12,7 @@ var async = require('async'),
 exports.read = function (req, res) {
   async.waterfall([
     function (callback) {
-      Gallery.find().limit(12).exec(
+      Gallery.find().limit(8).exec(
         function (err, galleries) {
           if (err) {
             callback(err);
