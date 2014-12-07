@@ -36,7 +36,7 @@ exports.create = function (req, res) {
           if (err) {
             callback(err);
           } else {
-            callback(user.name);
+            callback(null, user.name);
           }
         });
       },
