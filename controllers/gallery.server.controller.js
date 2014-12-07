@@ -18,7 +18,7 @@ exports.create = function (req, res) {
   //   type = req.files.type,
   //   imageData = req.files.image,
   //   soundData = req.files.sound;
-  console.log(req.files);
+  // console.log(req.files);
   console.log(req.body);
   console.log("pass1");
 
