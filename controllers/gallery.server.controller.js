@@ -22,7 +22,7 @@ var getImagePath = function (imagePath) {
 exports.create = function (req, res) {
   var body = req.body,
     imageData = req.files.image;
-    // soundData = req.files.sound;
+  // soundData = req.files.sound;
   console.log(req.files);
   console.log(req.body);
 
@@ -70,31 +70,26 @@ exports.create = function (req, res) {
 /**
  * Show the Gallery
  */
-var randomGallery = function () {
+exports.read = function (req, res) {
   Gallery.find().limit(12).exec(
     function (err, galleries) {
-      return galleries;
+      res.json(galleries);
     });
 };
 
-var userGallery = function (uid) {
-  Gallery.find({
-    uid: uid
-  }, function (err, galleries) {
-    return galleries;
-  });
-};
 
-exports.read = function (req, res) {
-  var galleries;
-
-  if (!req.query.id) {
-    galleries = randomGallery();
-    res.json(galleries);
-  } else if (req.query.id) {
-    galleries = userGallery(req.query.id);
-    res.json(galleries);
-  } else {
+exports.readUserGallery = function (req, res) {
+  if (!req.params.id) {
     res.status(400).send('Bad Request');
+  } else {
+    Gallery.find({
+      uid: req.query.id
+    }, function (err, galleries) {
+      if (err) {
+        res.status(400).send('Bad Request');
+      } else {
+        res.json(galleries);
+      }
+    });
   }
 };
