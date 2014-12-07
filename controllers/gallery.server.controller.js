@@ -7,6 +7,16 @@ var async = require('async'),
   User = models.User,
   Gallery = models.Gallery;
 
+var getImagePath = function (imagePath) {
+  var path;
+
+  imagePath = imagePath.split('\\');
+  console.log(imagePath[2]);
+  path = process.env.HOST + '/images/' + imagePath[2];
+
+  return path;
+};
+
 /**
  * Create a Gallery
  */
@@ -17,7 +27,7 @@ exports.create = function (req, res) {
   console.log(req.files);
   console.log(req.body);
 
-  if (true || !body.id || !imageData) {
+  if (!body.id || !imageData) {
     res.status(400).send();
   } else {
     async.waterfall([
@@ -39,7 +49,7 @@ exports.create = function (req, res) {
         gallery.name = body.name;
         gallery.text = body.text;
         // gallery.type = body.type;
-        gallery.image = process.env.HOST + '/' + imageData.path;
+        gallery.image = getImagePath(imageData.path);
         // gallery.sound = soundData;
 
         gallery.save(function (err) {
