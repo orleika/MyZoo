@@ -31,7 +31,6 @@ exports.create = function (req, res) {
   } else {
     async.waterfall([
       function (callback) {
-        console.log("pass2");
         User.findById(body.id, function (err, user) {
           if (err) {
             callback(err);
@@ -41,7 +40,6 @@ exports.create = function (req, res) {
         });
       },
       function (uname, callback) {
-        console.log("pass3");
         var gallery = new Gallery();
         gallery.uid = body.id;
         gallery.uname = uname;
@@ -75,6 +73,7 @@ exports.create = function (req, res) {
 var randomGallery = function () {
   Gallery.find().limit(12).exec(
     function (err, galleries) {
+      console.log(galleries);
       return galleries;
     });
 };
@@ -91,7 +90,6 @@ exports.read = function (req, res) {
   var galleries;
 
   if (!req.query.id) {
-    console.log("pass");
     galleries = randomGallery();
     res.json(galleries);
   } else if (req.query.id) {
