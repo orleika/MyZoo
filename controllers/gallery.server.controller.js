@@ -40,7 +40,7 @@ exports.create = function (req, res) {
           }
         });
       },
-      function (uname, allback) {
+      function (uname, callback) {
         console.log("pass3");
         var gallery = new Gallery();
         gallery.uid = body.id;
