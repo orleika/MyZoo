@@ -87,7 +87,6 @@ exports.read = function (req, res) {
     });
 };
 
-
 exports.readUserGallery = function (req, res) {
   if (!req.params.id) {
     var error = new Error();
