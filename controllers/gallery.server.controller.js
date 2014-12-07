@@ -27,7 +27,10 @@ exports.create = function (req, res) {
   console.log(req.body);
 
   if (!body.id || !imageData) {
-    res.status(400).send('Bad Request');
+    var error = new Error();
+    error.status = 400;
+    error.message = 'Bad Request';
+    next(error);
   } else {
     async.waterfall([
       function (callback) {
@@ -35,7 +38,11 @@ exports.create = function (req, res) {
           if (err) {
             callback(err);
           } else {
-            callback(null, user.name);
+            if (err) {
+              callback(err);
+            } else {
+              callback(null, user.name);
+            }
           }
         });
       },
@@ -61,7 +68,10 @@ exports.create = function (req, res) {
     ], function (err) {
       if (err) {
         console.log(err);
-        res.status(400).send('Bad Request');
+        var error = new Error(err);
+        error.status = 400;
+        error.message = 'Bad Request';
+        next(error);
       }
     });
   }
@@ -80,13 +90,19 @@ exports.read = function (req, res) {
 
 exports.readUserGallery = function (req, res) {
   if (!req.params.id) {
-    res.status(400).send('Bad Request');
+    var error = new Error();
+    error.status = 400;
+    error.message = 'Bad Request';
+    next(error);
   } else {
     Gallery.find({
       uid: req.query.id
     }, function (err, galleries) {
       if (err) {
-        res.status(400).send('Bad Request');
+        var error = new Error(err);
+        error.status = 400;
+        error.message = 'Bad Request';
+        next(error);
       } else {
         res.json(galleries);
       }
