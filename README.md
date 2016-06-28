@@ -6,6 +6,7 @@ MyZoo
 Tech Institute™ プログラミング・デイ2014「子ども×学びハッカソン 」
 準優勝
 
-## Copyright (c) 2016 orleika
+## License
+Copyright (c) 2016 orleika
 Released under the MIT license
 http://opensource.org/licenses/mit-license.php
